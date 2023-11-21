@@ -1,0 +1,17 @@
+---
+- name: Testing Magic variables
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Inventory Hostname
+      debug:
+        msg: you are on {{ inventory_hostname }}
+
+    - name: group_names
+      debug:
+        msg: "you belong to these group(s): {{ group_names }}"
+
+    - name: all the groups
+      debug:
+        msg: webserver members are {{ groups['webservers'] }}
+...

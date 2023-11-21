@@ -2,20 +2,24 @@
 - name: Testing Variables
   hosts: windows
   gather_facts: false
+  vars_files:
+    - vars/mydata.yaml
   vars:
-    value1: 123
+    value1: 123               # overwritten by value1 declared in vars_files
   tasks:
     - name: Task 1
       debug:
-        msg: Task 1
+        msg:
+          - "{{ value1 }} is value1"
+          - "{{ value2 }} is value2"
 
-    - name: Task 2
+    - name: Task 2 (value1={{ value1 }})
       vars:
         value1: abc
       debug:
-        msg: Task 2
+        var: value1
         
     - name: Task 3
       debug:
-        msg: Task 3
+        msg: value1 = {{ value1 }}
 ...

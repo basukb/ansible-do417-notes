@@ -2,3 +2,6 @@ monkey
 
 [windows]
 win[1:2] 
+
+[webservers]
+win1

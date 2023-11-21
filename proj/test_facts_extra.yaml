@@ -1,0 +1,22 @@
+---
+- name: EXTRAS
+  hosts: webservers
+  tasks:
+    - name: display hostname
+      debug:
+        var: ansible_fqdn
+
+    - name: Manually collect facts
+      setup:
+      delegate_to: win2
+      delegate_facts: true
+
+    - name: display hostname
+      debug:
+        var: ansible_fqdn
+ 
+    - name: Show the ip address of win2
+      debug:
+        msg: 
+          - win1 is {{ ansible_facts['ip_addresses'][0] }}
+          - win2 is {{ hostvars.win2.ansible_facts.ip_addresses[0] }}

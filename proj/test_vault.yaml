@@ -1,0 +1,12 @@
+---
+- name: Testing Secrets
+  hosts: all
+  gather_facts: false
+  vars_files:
+    - vars/secret.yaml
+  tasks:
+    - name: Task 1
+      debug:
+        msg:
+          - username is {{ username }}
+          - password is {{ password }}

@@ -1,0 +1,14 @@
+---
+- name: My First Play
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Task 1
+      win_command: systeminfo.exe
+
+    - win_ping:
+
+    - name: Task 3
+      debug:
+        var: ansible_host
+...

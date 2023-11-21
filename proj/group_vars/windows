@@ -1,0 +1,3 @@
+# User credentials
+ansible_user: devops
+ansible_password: RedHat123@!

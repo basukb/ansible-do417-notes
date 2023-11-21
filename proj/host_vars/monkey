@@ -1,0 +1,5 @@
+ansible_host: 172.25.251.74
+
+# User credentials
+ansible_user: training
+ansible_password: Qvqnxta2

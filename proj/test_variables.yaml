@@ -1,0 +1,21 @@
+---
+- name: Testing Variables
+  hosts: windows
+  gather_facts: false
+  vars:
+    value1: 123
+  tasks:
+    - name: Task 1
+      debug:
+        msg: Task 1
+
+    - name: Task 2
+      vars:
+        value1: abc
+      debug:
+        msg: Task 2
+        
+    - name: Task 3
+      debug:
+        msg: Task 3
+...

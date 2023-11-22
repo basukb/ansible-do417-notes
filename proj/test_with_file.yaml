@@ -1,0 +1,9 @@
+---
+- name: testing with file
+  hosts: localhost
+  tasks:
+    - name: Display content of dummy file
+      debug:
+        var: item
+      with_file:
+        - dummy

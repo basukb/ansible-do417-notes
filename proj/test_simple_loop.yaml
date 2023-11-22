@@ -1,0 +1,24 @@
+---
+- name: test loops
+  hosts: win1
+  gather_facts: false
+  vars:
+    value1: 1 2 3
+    my_list:
+      - item one
+      - item two
+  tasks:
+    - name: T1
+      debug:
+        msg: Item is {{ item }}
+      with_items:
+        - 1 2 3
+        - hello world
+        - 123
+
+    - name: T2
+      debug:
+        msg:
+          - 1 2 3
+          - hello world
+          - 123

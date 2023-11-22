@@ -12,6 +12,7 @@
         msg:
           - "{{ value1 }} is value1"
           - "{{ value2 }} is value2"
+      when: value2 is defined
 
     - name: Task 2 (value1={{ value1 }})
       vars:

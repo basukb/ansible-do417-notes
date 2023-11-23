@@ -1,0 +1,10 @@
+{% for cnt in mylist %}
+name = {{ cnt.name }}
+value = {{ cnt.value }}
+{% if cnt.name == 'one' %}
+    yahoo. gotcha mr one.
+{% else %}
+    not mr one.
+{% endif %}
+
+{% endfor %}

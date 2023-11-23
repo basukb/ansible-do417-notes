@@ -1,0 +1,14 @@
+- name: testing jinja2 expressions
+  vars:
+    mylist:
+      - { name: one, value: abc }
+      - name: two
+        value: def
+      - name: three
+        value: ghi
+  hosts: localhost
+  tasks:
+    - name: using template
+      win_template:
+        src: templates/config.file.j2
+        dest: ./config.file

@@ -1,17 +1,44 @@
 ---
 - name: Testing handlers
-  hosts: all
+  hosts: win1
   gather_facts: false
+  force_handlers: true
   tasks:
     - name: Task 1
       debug:
         msg: Task 1
+      changed_when: true
+      notify:
+        - handler three
+        - handler a
+        
+#    - name: running notified handlers
+#      meta: flush_handlers
 
     - name: Task 2
       debug:
         msg: Task 2
+      changed_when: true
+      failed_when: false
+      notify:
+        - two
         
     - name: Task 3
       debug:
         msg: Task 3
+      changed_when: true
+      notify:
+        - handler a
+  handlers:
+    - name: handler a
+      debug:
+        msg: This is ONE
+
+    - name: two
+      debug:
+        msg: This is TWO
+        
+    - name: handler three
+      debug:
+        msg: This is THREE
 ...

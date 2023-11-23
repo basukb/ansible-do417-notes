@@ -1,0 +1,34 @@
+---
+- name: Testing Block Error Handling
+  hosts: win1
+  gather_facts: false
+  ignore_errors: true
+  tasks:
+    - name: Task 1
+      debug:
+        msg: Task 1
+
+    - block:
+        - name: Task 2a
+          vars:
+            failit: true
+          debug:
+            msg: Task 2a
+          failed_when: failit
+            
+        - name: Task 2b
+          debug:
+            msg: Task 2b
+      rescue:
+        - name: Task R1
+          debug:
+            msg: Task R1
+      always:
+        - name: Always
+          debug:
+            msg: This will always run
+        
+    - name: Task 3
+      debug:
+        msg: Task 3
+...

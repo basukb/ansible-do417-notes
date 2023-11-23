@@ -225,14 +225,25 @@ Playbook Syntax
   ---                                     # start of YAML (optional)
   - name: PLAY_NAME
     host: HOST_LIST
-    gather_facts: True|false
     vars: VAR_DICTS
-    vars_files: FILES_LIST
+    vars_files: FILES_LIST                # higher priority over the vars
+    become: true|false
+    gather_facts: True|false              # when dealing with network devices set to False    become: true|False
+    ignore_errors: true|False             # dangerous. Try not to use this if possible.
+    force_handlers: False|true
+    pre_tasks: TASK_LIST
+    roles:                                # can be written as - {role: ROLE, var: VALUE, ...}
+      - role: ROLE_NAME                  ╶┬╴ ROLE
+        VAR_DICTS                         │
+        tags: TAG_LIST                    │
+        become: true|false               ╶╯
     tasks:
       - name: TASK_NAME                  ╶┬╴ TASK
         vars: VAR_DICTS                   │
         MODULE_NAME: MOD_OPT_DICTS        │
+        become: true|false                │
         register: VAR_NAME                │
+        ignore_errors: true|False         │
         loop: CONDITION_LIST              │
         when: CONDITION_LIST              │   # before task execution
         changed_when: CONDITION_LIST      │   # after task execution
@@ -248,7 +259,12 @@ Playbook Syntax
         become: true|false                │
         when: CONDITION_LIST             ╶╯
 
+    post_tasks: TASK_LIST
     handlers: TASK_LIST
+
+  - name: Import Playbook
+    import_playbook: PLAYBOOK
+  ...
 
 Variables
 =========
@@ -392,6 +408,8 @@ HANDLERS
                 meta: flush_handlers
       5. In their own namespace. (You can't notify a playbooks handler from inside a role and vice versa)
 
+  Execution Order
+  ---------------
     Handlers will execute based on the above rules each time for pre_tasks, tasks and post_tasks.
       1. pre_tasks
       2.   handlers
@@ -401,9 +419,253 @@ HANDLERS
       6. post_tasks
       7.   handlers
 
+Jinja2
+======
+  Delimeters:
+    {% ... %} - statements
+    {{ ... }} - expressions to generate as output
+    {# ... #} - comments not included in output
 
-TIPS:
+  Conditional Statements:
+    {% if CONDITION %}
+    ...
+    {% else %}
+    ...
+    {% endif %}
+
+  Loops:
+    {% for VAR in LIST %}
+    {% if CONDITION %}
+    ...
+    {% endif %}
+    {% endfor %}
+
+    {% for VAR in LIST [if CONDITION] %}
+    ...
+    {% endfor %}
+
+TIPS
+====
   Variables
-  =========
+  ---------
     boolean & floating point numbers doesn't need to be quoted.
 
+  Docs
+  ----
+    Config Settings   - https://docs.ansible.com/ansible/latest/reference_appendices/config.html
+    Playbook Keywords - https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html
+    Playbook Filters  - https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html
+    Jinja2            - https://jinja.palletsprojects.com/en/3.1.x/templates
+
+Windows Modules
+===============
+  - win_ping:
+  - win_reboot:
+  - setup:
+  - win_product_facts:
+  - win_disk_facts:
+  - win_partition:
+  - win_format:
+  - win_defrag:
+  - win_hostname:
+  - win_command:
+  - win_shell:
+  - win_psexec:
+  - script:
+  - win_schedule_task:
+  - win_schedule_task_stat:
+  - include_vars:
+      file:
+  - debug:
+      var: <VARIABLE>           # OR msg: "<MESSAGE>"
+  - win_file:
+  - win_acl:
+  - win_stat:
+  - win_owner:
+  - win_copy:
+      content|src:
+      dest:
+  - win_robocopy:
+  - win_template:
+      src:
+      dest:
+  - win_find:
+  - win_lineinfile:
+  - win_shortcut:
+  - win_file_version:
+  - win_tempfile:
+  - win_unzip:
+  - win_package:                # install/remove MSI/EXE Packages
+      path: <MSI/EXE_FILE>
+      state: Present|absent
+      creates_{path|service|version}: <PATH|SERVICE|VERSION>    # used to validate if successful
+  - win_updates:                # search, download and install using Windows Update Client
+      category_names: <LIST_OF_CATEGORIES>    # refer to ansible-doc
+      blacklist: <LIST_OF_KB>
+      whitelist: <LIST_OF_KB>                 # updates based of the list
+      use_scheduled_tasks: False|true         # elevate privilege
+      reboot: False|true                      # if true, async does not work
+      reboot_timeout: <SECONDS>               # default 1200
+      state: Installed|searched               # search returns a list
+  - win_hotfix:
+      hotfix_kb:
+      source:
+      state:
+  - win_chocolatey:             # manage package with Chocolatey(will install if not already installed)
+      name: <PACKAGE_LIST>
+      state: Present|absent|downgrade|latest|reinstall
+      proxy_url:
+      timeout: <SECONDS>          # default 2700
+      version: <SPECIFIC_VERSION> # refer to ansible-doc
+  - win_feature:                # install/remove Windows Roles and Features
+      name:                     # use Get-WindowsFeature PowerShell command to list
+      include_sub_features:
+      include_management_tools: False|true
+      state: Present|absent
+  - win_psmodule:
+  - win_iis_website:
+  - win_iis_webbinding:
+  - win_dsc:
+      resource_name:
+      name:
+  - win_service:                # manage/query Windows Services
+      name:
+      state: started|stopped|restarted|paused|absent
+  - win_regedit:
+      path: {HKCC|HKLM|HKCU|HKCR|HKU}:<PATH>
+      name:
+      data:
+      type: String|binary|dword|expandstring|multistring|qword
+      state: Present|absent
+  - win_reg_stat:               # query registry key
+      path: {HKCC|HKLM|HKCU|HKCR|HKU}:<PATH>
+      name:
+  - win_regmerge:               # merge registry with missing keys.
+      path: <REGISTRY_FILE>       # you might want to delete key first before merge.
+      compare_to: {HKCC|HKLM|HKCU|HKCR|HKU}:<PATH>
+  - win_user:                   # manage local Windows users accounts
+      name:
+      password: <PLAIN_TEXT>
+      state: Present|absent|query
+      groups: <GROUP_LIST>
+      groups_action: Replace|add|remove
+      account_disable: yes|no
+      account_locked: no
+      description:
+      fullname:
+      password_expired: yes|no
+      password_never_expires: yes|no
+      update_password: Always|on_create
+      user_cannot_change_password: yes|no
+  - win_user_profile:
+      username:         # use this for valid user account (SID)
+      name:             # the base name for the profile path. use this to delete profile of a deleted account.
+      state: Present|absent
+      remove_multiple: False|true
+  - win_group:
+      name:
+      state:
+  - win_group_membership:
+      name:
+      members: <USER_LIST>
+      state:
+  - win_domain:         # manages Windows Active Directory
+      create_dns_delegation:
+      database_path:
+      dns_domain_name:
+      domain_mode:
+      domain_netbios_name:
+      forest_mode:
+      safe_mode_password:
+      sysvol_path:
+  - win_domain_user:
+      name:
+      firstname:
+      surname:
+      company:
+      password: <PLAIN_TEXT>
+      state:
+      groups:
+      street:
+      city:
+      state_province:
+      postal_code:
+      country:
+      attributes: 
+      account_locked: no        # ONLY use to unlock a user account
+  - win_domain_group:
+      name:
+      description:
+      state: Present|absent
+  - win_domain_group_membership:
+      name:
+      members:
+      state:
+  - win_domain_controller:
+      dns_domain_name:
+      domain_admin_user:
+      domain_admin_password:
+      safe_mode_password:
+      state:
+  - win_domain_membership:
+      dns_domain_name:
+      domain_admin_user:
+      domain_admin_password: <PLAIN_TEXT>
+      state: domain|workgroup|
+  - win_domain_computer:
+      name:
+      sam_account_name:
+      dns_hostname:
+      ou:
+      state:
+  - import_tasks:
+  - include_tasks:
+  - include_role:
+
+
+GARBAGE
+=======
+  - name: get file stat
+    win_stat:
+      path: C:\My Application\My Dir\fileX.abcd
+    register: stat_result
+
+  - name: do something
+    debug:
+      msg: the path variable exists and it is a directory
+    when:
+      - stat_result.stat.exists
+      - stat_result.stat.isdir
+
+  - name: another playbook
+    var:
+      abc:
+        - def: abc
+          one: two
+        - second: item
+          one: three
+      my_data: "{{ my_variable | default('123') }}"
+    tasks:
+      - name: anything
+        vars: 
+          my_item: |
+            {% if inventory_hostname == 'abc' %}
+            this is the first item
+            {% else %}
+            this is not the first item
+            {% endif %}
+        win_copy:
+          content: "{{ abc|to_yaml }}"
+          dest: C:\somewhere\myfile.dat
+
+      roles:
+        - role: role1
+          key1: value1
+          key2: value2 hellow
+        - role: role1
+          vars:
+            key1: abc
+            key2: def
+        - { role: role1, vars: { key1: no3, key2: three }}
+        - { role: role1, key1: no4, key2: four }
+        - { role: role1, key1: no5, key2: five }

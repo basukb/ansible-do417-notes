@@ -1,0 +1,21 @@
+---
+- name: Testing simple playbook
+  hosts: win1
+  vars:
+    pub_name: abc
+  tasks:
+    - name: Task 1
+      debug:
+        msg: Hello {{ pub_name }}
+
+    - name: Task 2
+      vars:
+        private_counter: 1
+      debug:
+        msg: Private value is {{ private_counter }}
+        
+    - name: Task 3
+      win_template:
+        src: abc.cfg.j2
+        dest: C:/Users/devops/Desktop/abc.cfg
+...

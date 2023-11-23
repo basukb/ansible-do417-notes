@@ -1,0 +1,11 @@
+---
+- name: testing roles
+  hosts: windows
+  roles:
+    - role: simple
+    - role: simple
+      pub_name: SECOND
+  tasks:
+    - name: My main task
+      debug:
+        msg: Hello World

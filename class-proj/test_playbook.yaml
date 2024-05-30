@@ -1,0 +1,6 @@
+- name: first
+  import_playbook: test_first.yaml
+
+- name: vars
+  import_playbook: test_vars.yaml
+  when: doit | bool

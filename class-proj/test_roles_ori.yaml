@@ -1,0 +1,20 @@
+- name: testing
+  hosts: win1.example.com
+  gather_facts: false
+  vars:
+    value1: This is public variable
+  tasks:
+    - name: T1
+      vars:
+        my_list:
+          - abc
+          - def
+      debug:
+        msg: the data is {{ value1 + item }}
+      loop: "{{ my_list }}"
+
+    - name: T2
+      win_copy:
+        src: files/config.cfg
+        dest: 'C:\config.cfg'
+

@@ -1,0 +1,13 @@
+welcome to {{ ansible_fqdn }}
+
+greeting message: {{ data }}
+
+value1 is 123: {%- if value1 == 123 -%}
+true
+{%- else -%}
+no. it is not 123
+{%- endif %}
+
+{% for NAME in users %}
+username = {{ NAME }}
+{% endfor %}

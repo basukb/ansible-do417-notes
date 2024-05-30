@@ -1,0 +1,25 @@
+- name: testing
+  hosts: win1.example.com
+  gather_facts: false
+  tasks:
+    - name: T1
+      debug:
+        msg: Task 1
+
+    - name: import tasks
+      vars:
+        dummy_var: abc
+      import_tasks: tasks/external_tasks.yaml
+
+    - name: include tasks
+      vars:
+        dummy_var: "{{ item }}"
+      include_tasks: tasks/external_tasks.yaml
+      loop:
+        - abc
+        - def
+        - ghi
+
+    - name: T3
+      debug:
+        msg: Task 3

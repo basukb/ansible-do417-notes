@@ -1,0 +1,45 @@
+# This playbook introduces us to:
+#   1. the following magic variables - hostvars, group_names, groups and inventory_hostname
+#   2. dot notation vs box notation in referencing variables
+#   3. Extra: when and how to use hostvars
+#
+# hostvars:
+#   monkey:
+#     inventory_hostname: monkey
+#     group_names:                        #hostvars.monkey.group_names OR
+#       - ungroupped                      #hostvars['monkey']['group_names']
+#     groups:
+#       all:
+#       ...
+#   win1.example.com:
+#     inventory_hostname: win1.example.com
+#     group_names:
+#       - webservers
+#       - windows
+#     ...
+#   win2.example.com:
+#     ...
+#
+- name: testing magic variables
+  hosts: win1.example.com
+  gather_facts: false
+  vars:
+    value1: PLAY VARIABLE
+  tasks:
+    - name: T1
+      debug:
+        var: hostvars
+
+    - name: T2
+      debug:
+        msg: you are now in {{ inventory_hostname }} and value1 is {{ value1 }}
+
+    - name: T3
+      debug:
+        msg:
+          - you belong to {{ group_names[0] }}
+          - win2 belongs to {{ hostvars['win2.example.com']['group_names'] }}
+          - win2 belongs to {{ hostvars['win2.example.com'].group_names }}
+
+
+

@@ -318,7 +318,7 @@ Variables
     # connection type
       ansible_connection: local|Smart|ssh|paramiko|winrm|network_cli|netconf    # "ansible-doc -t connection -l"
     # windows
-      ansible_winrm_transport: basic/credssp
+      ansible_winrm_transport: basic|credssp|kerberos
       ansible_winrm_server_cert_validation: ignore 
       ansible_port: 5986
     # common

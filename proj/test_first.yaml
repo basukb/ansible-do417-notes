@@ -1,14 +1,21 @@
 ---
-- name: My First Play
+- name: my first playbook
   hosts: all
-  gather_facts: false
   tasks:
     - name: Task 1
-      win_command: systeminfo.exe
+      win_copy:
+        content: Hello World
+        dest: 'C:/Users/devops/Desktop/dummy2.txt'
 
-    - win_ping:
+    - name: Get hostname
+      win_command:
+        cmd: hostname.exe
+      changed_when: False
+      register: cmd_result
 
-    - name: Task 3
+    - name: display result
       debug:
-        var: ansible_host
+        msg: >
+          The command you ran was {{ cmd_result.cmd }}
+          and output is {{ cmd_result['stdout'] }}
 ...

@@ -1,0 +1,22 @@
+---
+- name: Testing Conditions
+  hosts: win1
+  gather_facts: false
+  vars:
+    user_name: al
+  tasks:
+    - block:
+        - name: Task 1
+          debug:
+            msg: Task 1
+
+        - name: Task 2
+          win_shell: echo $ENV:PATH
+          changed_when: "'abc' in sh_result.stdout"
+          register: sh_result
+          
+        - name: Task 3
+          debug:
+            var: sh_result
+      when: user_name == "Einstein"
+...

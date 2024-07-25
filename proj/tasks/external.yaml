@@ -1,11 +1,11 @@
-- name: Task 2
+- name: E1
   debug:
-    msg: Task 2 item is {{ item }}
+    msg: External 1
 
-- name: Task 3
+- name: E2
   debug:
-    msg: Task 3
+    msg: External 2 {{ tmp_var }}
     
-- name: Task 4
+- name: E3
   debug:
-    msg: Task 4
+    msg: External 3

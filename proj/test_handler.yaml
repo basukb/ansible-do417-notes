@@ -1,0 +1,48 @@
+- name: Testing handlers
+  hosts: win1.example.com
+  force_handlers: true
+  vars:
+    fail_it: 1
+  tasks:
+    - name: T1
+      debug:
+        msg: Task 1
+      changed_when: true
+      notify:
+        - H3
+        - H 2
+
+    - name: T2
+      debug:
+        msg: Task 2
+      changed_when: true
+      register: something
+      failed_when:
+        - fail_it == 1
+      notify:
+        - H1
+
+    - name: T3
+      debug:
+        msg: Task 3
+      changed_when: true
+      notify:
+        - H 2
+
+    - name: T4
+      debug:
+        var: something
+
+  handlers:
+    - name: H1
+      debug:
+        msg: Handler 1
+
+    - name: H 2
+      debug:
+        msg: Handler 2
+
+    - name: H3
+      debug:
+        msg: Handler 3
+

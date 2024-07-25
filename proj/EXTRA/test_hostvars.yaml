@@ -1,0 +1,35 @@
+- name: testing hostvars
+  hosts:
+    - app_servers
+    - db_servers
+  gather_facts: false
+  tasks:
+    - debug: var=hostvars
+      register: hostvars_var
+      
+    - name: BEFORE
+      copy:
+        content: "{{ hostvars_var | to_nice_yaml(indent=2) }}"
+        dest: ./hostvars-before.yaml
+      delegate_to: localhost
+
+    - name: Gather Facts
+      setup:
+
+    - debug: var=hostvars
+      register: hostvars_var
+
+    - name: AFTER
+      copy:
+        content: "{{ hostvars_var | to_nice_yaml(indent=2) }}"
+        dest: hostvars-after.yaml
+      delegate_to: localhost
+
+    - name: using info from win2
+      vars:
+        which_host: win2.example.com
+      debug:
+        msg:
+          - win1 ip is {{ ansible_facts.interfaces[0].ipv4.address }}
+          - ip address of win2 is {{ hostvars[which_host].ansible_facts.interfaces[0].ipv4.address }}
+      when: inventory_hostname in groups.app_servers

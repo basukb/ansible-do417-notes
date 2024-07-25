@@ -1,22 +1,31 @@
----
-- name: Testing Conditions
-  hosts: win1
+- name: testing
+  hosts: windows
   gather_facts: false
-  vars:
-    user_name: al
   tasks:
-    - block:
-        - name: Task 1
-          debug:
-            msg: Task 1
+    - name: T1
+      win_shell: dir c:\Users,c:\asdf
+      when: inventory_hostname == 'win1.example.com'
+      failed_when: false 
+      #ignore_errors: true
+      changed_when: false
+      register: sh_result
 
-        - name: Task 2
-          win_shell: echo $ENV:PATH
-          changed_when: "'abc' in sh_result.stdout"
-          register: sh_result
-          
-        - name: Task 3
-          debug:
-            var: sh_result
-      when: user_name == "Einstein"
-...
+    - name: will be skipped
+      debug:
+        var: sh_result
+      when:
+        - inventory_hostname == 'win1.example.com'
+        - inventory_hostname in groups['windows']
+    
+    - name: T3
+      debug:
+        msg: Task 3
+      when:
+        - sh_result.stdout is defined
+        - "'devops' in sh_result.stdout" 
+      failed_when: false
+
+    - name: T4
+      debug:
+        msg: Task 4
+

@@ -1,9 +1,0 @@
-# when "use fact cache" option is checked in templates within ansible tower,
-# we can use facts, without gathering
-- name: Testing tower cached facts
-  hosts: win1.example.com
-  gather_facts: false
-  tasks:
-    - name: Display fqdn
-      debug:
-        msg: you are now in {{ ansible_fqdn }}

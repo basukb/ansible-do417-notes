@@ -1,0 +1,16 @@
+my_db:
+  - dbname: abc
+    tables:
+      - name: table1
+        fields:
+          - name: username
+            dtype: varchar(32)
+          - name: age
+            dtype: int
+      - name: table2
+
+simple:
+  - albert
+  - mike
+  - dick
+

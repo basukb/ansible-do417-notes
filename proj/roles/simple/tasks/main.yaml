@@ -3,8 +3,13 @@
     msg: Hello {{ pub_name }}
 
 - name: Task 2
+  vars:
+    cnt:
+      - julie
+      - nancy
   debug:
-    msg: Private value is {{ private_counter }}
+    msg: "{{ item }}'s age is {{ users[item]['age'] }}"
+  loop: "{{ cnt }}"
     
 - name: Task 3
   win_template:

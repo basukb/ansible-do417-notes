@@ -1,0 +1,19 @@
+- name: testing lists
+  hosts: localhost
+  vars:
+    data:
+      - name: julie
+        age: 123
+        gender: f
+      - name: albert
+        age: 3
+        gender: m
+      - name: xyz
+        age: 100
+        gender: dunno
+  tasks:
+    - name: display data
+      debug:
+        msg: 
+          - "{{ data[2].name }}"
+          - "{{ data[2].age }}"

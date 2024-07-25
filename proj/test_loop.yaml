@@ -15,12 +15,15 @@
         - "{{ value1 }}"
         - hello world
         - 123
-      when: inventory_hostname == "win1"
 
     - name: T2
       debug:
         msg: Task 2 item is {{ item }}
       loop: "{{ my_list }}"
+
+    - name: T2a
+      debug:
+        msg: "{{ my_list }}"
 
     - name: T3
       debug:

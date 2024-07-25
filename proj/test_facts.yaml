@@ -1,22 +1,23 @@
----
-- name: Testing facts
-  hosts: win1
+- name: testing facts
+  hosts: all
+  gather_facts: false
   tasks:
-    - name: Task 1
+    - name: gather facts for win1.example.com
+      setup:
+      register: setup_result
+
+    - name: hostname
       debug:
         msg:
-          - you are on {{ ansible_fqdn }}     # {{ ansible_facts['fqdn'] }}
-          - you belong to {{ ansible_facts.domain }}
-          - your ip is {{ ansible_facts.ip_addresses[0] }}
+          - you are now in {{ ansible_facts['fqdn'] }}
+          - you are now in {{ ansible_fqdn }}
 
-    - name: dynamic "custom facts"
-      set_fact:
-        counter: 1
-    
-    - name: change counter
-      set_fact:
-        counter: "{{ counter + 5 }}"
-
-    - name: display counter
+    - name: display magic variables
       debug:
-        var: counter
+        msg: 
+          - inventory_hostname is {{ inventory_hostname }}
+          - groups is {{ groups }}
+          - group_names is {{ group_names }}
+          - hostvars is # {{ hostvars }}
+      when: inventory_hostname in groups['windows']
+

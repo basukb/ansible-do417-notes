@@ -1,0 +1,22 @@
+---
+- name: Testing facts
+  hosts: win1
+  tasks:
+    - name: Task 1
+      debug:
+        msg:
+          - you are on {{ ansible_fqdn }}     # {{ ansible_facts['fqdn'] }}
+          - you belong to {{ ansible_facts.domain }}
+          - your ip is {{ ansible_facts.ip_addresses[0] }}
+
+    - name: dynamic "custom facts"
+      set_fact:
+        counter: 1
+    
+    - name: change counter
+      set_fact:
+        counter: "{{ counter + 5 }}"
+
+    - name: display counter
+      debug:
+        var: counter

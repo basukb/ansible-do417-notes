@@ -1,0 +1,139 @@
+changed: false
+failed: false
+hostvars:
+  monkey:
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_diff_mode: false
+    ansible_facts: {}
+    ansible_forks: 5
+    ansible_host: win1.example.com
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_user: devops@EXAMPLE.COM
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    group_names:
+    - ungrouped
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: monkey
+    inventory_hostname_short: monkey
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA
+  win1.example.com:
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_diff_mode: false
+    ansible_facts: {}
+    ansible_forks: 5
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_user: devops@EXAMPLE.COM
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    group_names:
+    - app_servers
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: win1.example.com
+    inventory_hostname_short: win1
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA
+  win2.example.com:
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_diff_mode: false
+    ansible_facts: {}
+    ansible_forks: 5
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_user: devops@EXAMPLE.COM
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    group_names:
+    - db_servers
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: win2.example.com
+    inventory_hostname_short: win2
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA

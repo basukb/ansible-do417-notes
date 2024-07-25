@@ -1,0 +1,971 @@
+changed: false
+failed: false
+hostvars:
+  monkey:
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_diff_mode: false
+    ansible_facts: {}
+    ansible_forks: 5
+    ansible_host: win1.example.com
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_user: devops@EXAMPLE.COM
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    group_names:
+    - ungrouped
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: monkey
+    inventory_hostname_short: monkey
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA
+  win1.example.com:
+    ansible_architecture: 64-bit
+    ansible_architecture2: x86_64
+    ansible_bios_date: 04/01/2014
+    ansible_bios_version: 1.14.0-1.module+el8.4.0+8855+a9e237a9
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_date_time:
+      date: '2024-07-25'
+      day: '25'
+      epoch: '1721871906.60429'
+      epoch_int: 1721871907
+      epoch_local: '1721871906.60429'
+      hour: '01'
+      iso8601: '2024-07-25T01:45:06Z'
+      iso8601_basic: 20240725T014506604291
+      iso8601_basic_short: 20240725T014506
+      iso8601_micro: '2024-07-25T01:45:06.604291Z'
+      minute: '45'
+      month: '07'
+      second: '06'
+      time: 01:45:06
+      tz: UTC
+      tz_offset: +00:00
+      weekday: Thursday
+      weekday_number: '4'
+      weeknumber: '29'
+      year: '2024'
+    ansible_diff_mode: false
+    ansible_distribution: Microsoft Windows Server 2022 Standard
+    ansible_distribution_major_version: '10'
+    ansible_distribution_version: 10.0.20348.0
+    ansible_domain: example.com
+    ansible_env:
+      ALLUSERSPROFILE: C:\ProgramData
+      APPDATA: C:\Users\devops\AppData\Roaming
+      COMPUTERNAME: WIN1
+      ComSpec: C:\Windows\system32\cmd.exe
+      CommonProgramFiles: C:\Program Files\Common Files
+      CommonProgramFiles(x86): C:\Program Files (x86)\Common Files
+      CommonProgramW6432: C:\Program Files\Common Files
+      DriverData: C:\Windows\System32\Drivers\DriverData
+      HOMEDRIVE: 'C:'
+      HOMEPATH: \Users\devops
+      LOCALAPPDATA: C:\Users\devops\AppData\Local
+      LOGONSERVER: \\WINAD
+      NUMBER_OF_PROCESSORS: '2'
+      OS: Windows_NT
+      PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+      PROCESSOR_ARCHITECTURE: AMD64
+      PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 85 Stepping 7, GenuineIntel
+      PROCESSOR_LEVEL: '6'
+      PROCESSOR_REVISION: '5507'
+      PROMPT: $P$G
+      PSExecutionPolicyPreference: Unrestricted
+      PSModulePath: C:\Users\devops\Documents\WindowsPowerShell\Modules;C:\Program
+        Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+      PUBLIC: C:\Users\Public
+      Path: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\devops\AppData\Local\Microsoft\WindowsApps
+      ProgramData: C:\ProgramData
+      ProgramFiles: C:\Program Files
+      ProgramFiles(x86): C:\Program Files (x86)
+      ProgramW6432: C:\Program Files
+      SystemDrive: 'C:'
+      SystemRoot: C:\Windows
+      TEMP: C:\Users\devops\AppData\Local\Temp
+      TMP: C:\Users\devops\AppData\Local\Temp
+      USERDNSDOMAIN: EXAMPLE.COM
+      USERDOMAIN: EXAMPLE
+      USERDOMAIN_ROAMINGPROFILE: EXAMPLE
+      USERNAME: devops
+      USERPROFILE: C:\Users\devops
+      windir: C:\Windows
+    ansible_facts:
+      architecture: 64-bit
+      architecture2: x86_64
+      bios_date: 04/01/2014
+      bios_version: 1.14.0-1.module+el8.4.0+8855+a9e237a9
+      date_time:
+        date: '2024-07-25'
+        day: '25'
+        epoch: '1721871906.60429'
+        epoch_int: 1721871907
+        epoch_local: '1721871906.60429'
+        hour: '01'
+        iso8601: '2024-07-25T01:45:06Z'
+        iso8601_basic: 20240725T014506604291
+        iso8601_basic_short: 20240725T014506
+        iso8601_micro: '2024-07-25T01:45:06.604291Z'
+        minute: '45'
+        month: '07'
+        second: '06'
+        time: 01:45:06
+        tz: UTC
+        tz_offset: +00:00
+        weekday: Thursday
+        weekday_number: '4'
+        weeknumber: '29'
+        year: '2024'
+      distribution: Microsoft Windows Server 2022 Standard
+      distribution_major_version: '10'
+      distribution_version: 10.0.20348.0
+      domain: example.com
+      env:
+        ALLUSERSPROFILE: C:\ProgramData
+        APPDATA: C:\Users\devops\AppData\Roaming
+        COMPUTERNAME: WIN1
+        ComSpec: C:\Windows\system32\cmd.exe
+        CommonProgramFiles: C:\Program Files\Common Files
+        CommonProgramFiles(x86): C:\Program Files (x86)\Common Files
+        CommonProgramW6432: C:\Program Files\Common Files
+        DriverData: C:\Windows\System32\Drivers\DriverData
+        HOMEDRIVE: 'C:'
+        HOMEPATH: \Users\devops
+        LOCALAPPDATA: C:\Users\devops\AppData\Local
+        LOGONSERVER: \\WINAD
+        NUMBER_OF_PROCESSORS: '2'
+        OS: Windows_NT
+        PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+        PROCESSOR_ARCHITECTURE: AMD64
+        PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 85 Stepping 7, GenuineIntel
+        PROCESSOR_LEVEL: '6'
+        PROCESSOR_REVISION: '5507'
+        PROMPT: $P$G
+        PSExecutionPolicyPreference: Unrestricted
+        PSModulePath: C:\Users\devops\Documents\WindowsPowerShell\Modules;C:\Program
+          Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+        PUBLIC: C:\Users\Public
+        Path: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\devops\AppData\Local\Microsoft\WindowsApps
+        ProgramData: C:\ProgramData
+        ProgramFiles: C:\Program Files
+        ProgramFiles(x86): C:\Program Files (x86)
+        ProgramW6432: C:\Program Files
+        SystemDrive: 'C:'
+        SystemRoot: C:\Windows
+        TEMP: C:\Users\devops\AppData\Local\Temp
+        TMP: C:\Users\devops\AppData\Local\Temp
+        USERDNSDOMAIN: EXAMPLE.COM
+        USERDOMAIN: EXAMPLE
+        USERDOMAIN_ROAMINGPROFILE: EXAMPLE
+        USERNAME: devops
+        USERPROFILE: C:\Users\devops
+        windir: C:\Windows
+      fqdn: win1.example.com
+      gather_subset:
+      - all
+      hostname: win1
+      interfaces:
+      - connection_name: tap43abe677-84
+        default_gateway: 172.25.250.254
+        dns_domain: null
+        interface_index: 11
+        interface_name: Red Hat VirtIO Ethernet Adapter
+        ipv4:
+          address: 172.25.250.15
+          prefix: '24'
+        ipv6:
+          address: fe80::88e0:dbb5:3a2b:5102%11
+          prefix: '64'
+        macaddress: 52:54:00:00:FA:0F
+        mtu: 1500
+        speed: 10000
+      ip_addresses:
+      - fe80::88e0:dbb5:3a2b:5102%11
+      - 172.25.250.15
+      kernel: 10.0.20348.0
+      lastboot: '2024-07-22 05:39:14Z'
+      machine_id: S-1-5-21-886581586-1337216644-1141410559
+      memfree_mb: 2433
+      memtotal_mb: 4096
+      module_setup: true
+      netbios_name: WIN1
+      nodename: win1.example.com
+      os_family: Windows
+      os_installation_type: Server
+      os_name: Microsoft Windows Server 2022 Standard
+      os_product_type: server
+      owner_contact: ''
+      owner_name: Windows User
+      pagefilefree_mb: 490
+      pagefiletotal_mb: 704
+      powershell_version: 5
+      processor:
+      - '0'
+      - GenuineIntel
+      - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+      - '1'
+      - GenuineIntel
+      - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+      processor_cores: 1
+      processor_count: 2
+      processor_threads_per_core: 1
+      processor_vcpus: 2
+      product_name: OpenStack Compute
+      product_serial: 065a8292-cb96-4e9f-9236-02f719d1220f
+      reboot_pending: true
+      swaptotal_mb: 0
+      system: Win32NT
+      system_description: ''
+      system_vendor: Red Hat
+      uptime_seconds: 245154
+      user_dir: C:\Users\devops
+      user_gecos: ''
+      user_id: devops
+      user_sid: S-1-5-21-2192024107-3412564761-2221084266-1109
+      virtualization_role: guest
+      virtualization_type: openstack
+      win_rm_certificate_expires: '2034-05-29 06:10:31'
+      win_rm_certificate_thumbprint: 9EF07BDF53DF6351DA1298D59BDBDD8941ACF8C8
+      windows_domain: example.com
+      windows_domain_member: true
+      windows_domain_role: Member server
+    ansible_forks: 5
+    ansible_fqdn: win1.example.com
+    ansible_hostname: win1
+    ansible_interfaces:
+    - connection_name: tap43abe677-84
+      default_gateway: 172.25.250.254
+      dns_domain: null
+      interface_index: 11
+      interface_name: Red Hat VirtIO Ethernet Adapter
+      ipv4:
+        address: 172.25.250.15
+        prefix: '24'
+      ipv6:
+        address: fe80::88e0:dbb5:3a2b:5102%11
+        prefix: '64'
+      macaddress: 52:54:00:00:FA:0F
+      mtu: 1500
+      speed: 10000
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_ip_addresses:
+    - fe80::88e0:dbb5:3a2b:5102%11
+    - 172.25.250.15
+    ansible_kernel: 10.0.20348.0
+    ansible_lastboot: '2024-07-22 05:39:14Z'
+    ansible_machine_id: S-1-5-21-886581586-1337216644-1141410559
+    ansible_memfree_mb: 2433
+    ansible_memtotal_mb: 4096
+    ansible_netbios_name: WIN1
+    ansible_nodename: win1.example.com
+    ansible_os_family: Windows
+    ansible_os_installation_type: Server
+    ansible_os_name: Microsoft Windows Server 2022 Standard
+    ansible_os_product_type: server
+    ansible_owner_contact: ''
+    ansible_owner_name: Windows User
+    ansible_pagefilefree_mb: 490
+    ansible_pagefiletotal_mb: 704
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_powershell_version: 5
+    ansible_processor:
+    - '0'
+    - GenuineIntel
+    - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+    - '1'
+    - GenuineIntel
+    - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+    ansible_processor_cores: 1
+    ansible_processor_count: 2
+    ansible_processor_threads_per_core: 1
+    ansible_processor_vcpus: 2
+    ansible_product_name: OpenStack Compute
+    ansible_product_serial: 065a8292-cb96-4e9f-9236-02f719d1220f
+    ansible_reboot_pending: true
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_swaptotal_mb: 0
+    ansible_system: Win32NT
+    ansible_system_description: ''
+    ansible_system_vendor: Red Hat
+    ansible_uptime_seconds: 245154
+    ansible_user: devops@EXAMPLE.COM
+    ansible_user_dir: C:\Users\devops
+    ansible_user_gecos: ''
+    ansible_user_id: devops
+    ansible_user_sid: S-1-5-21-2192024107-3412564761-2221084266-1109
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_virtualization_role: guest
+    ansible_virtualization_type: openstack
+    ansible_win_rm_certificate_expires: '2034-05-29 06:10:31'
+    ansible_win_rm_certificate_thumbprint: 9EF07BDF53DF6351DA1298D59BDBDD8941ACF8C8
+    ansible_windows_domain: example.com
+    ansible_windows_domain_member: true
+    ansible_windows_domain_role: Member server
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    gather_subset:
+    - all
+    group_names:
+    - app_servers
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    hostvars_var:
+      changed: false
+      failed: false
+      hostvars:
+        monkey:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_host: win1.example.com
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - ungrouped
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: monkey
+          inventory_hostname_short: monkey
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+        win1.example.com:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - app_servers
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: win1.example.com
+          inventory_hostname_short: win1
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+        win2.example.com:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - db_servers
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: win2.example.com
+          inventory_hostname_short: win2
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: win1.example.com
+    inventory_hostname_short: win1
+    module_setup: true
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA
+  win2.example.com:
+    ansible_architecture: 64-bit
+    ansible_architecture2: x86_64
+    ansible_bios_date: 04/01/2014
+    ansible_bios_version: 1.14.0-1.module+el8.4.0+8855+a9e237a9
+    ansible_check_mode: false
+    ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+    ansible_connection: winrm
+    ansible_date_time:
+      date: '2024-07-25'
+      day: '25'
+      epoch: '1721871908.10794'
+      epoch_int: 1721871908
+      epoch_local: '1721871908.10794'
+      hour: '01'
+      iso8601: '2024-07-25T01:45:08Z'
+      iso8601_basic: 20240725T014508107942
+      iso8601_basic_short: 20240725T014508
+      iso8601_micro: '2024-07-25T01:45:08.107942Z'
+      minute: '45'
+      month: '07'
+      second: 08
+      time: 01:45:08
+      tz: UTC
+      tz_offset: +00:00
+      weekday: Thursday
+      weekday_number: '4'
+      weeknumber: '29'
+      year: '2024'
+    ansible_diff_mode: false
+    ansible_distribution: Microsoft Windows Server 2022 Standard
+    ansible_distribution_major_version: '10'
+    ansible_distribution_version: 10.0.20348.0
+    ansible_domain: example.com
+    ansible_env:
+      ALLUSERSPROFILE: C:\ProgramData
+      APPDATA: C:\Users\devops\AppData\Roaming
+      COMPUTERNAME: WIN2
+      ComSpec: C:\Windows\system32\cmd.exe
+      CommonProgramFiles: C:\Program Files\Common Files
+      CommonProgramFiles(x86): C:\Program Files (x86)\Common Files
+      CommonProgramW6432: C:\Program Files\Common Files
+      DriverData: C:\Windows\System32\Drivers\DriverData
+      HOMEDRIVE: 'C:'
+      HOMEPATH: \Users\devops
+      LOCALAPPDATA: C:\Users\devops\AppData\Local
+      LOGONSERVER: \\WINAD
+      NUMBER_OF_PROCESSORS: '2'
+      OS: Windows_NT
+      PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+      PROCESSOR_ARCHITECTURE: AMD64
+      PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 85 Stepping 7, GenuineIntel
+      PROCESSOR_LEVEL: '6'
+      PROCESSOR_REVISION: '5507'
+      PROMPT: $P$G
+      PSExecutionPolicyPreference: Unrestricted
+      PSModulePath: C:\Users\devops\Documents\WindowsPowerShell\Modules;C:\Program
+        Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+      PUBLIC: C:\Users\Public
+      Path: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\devops\AppData\Local\Microsoft\WindowsApps
+      ProgramData: C:\ProgramData
+      ProgramFiles: C:\Program Files
+      ProgramFiles(x86): C:\Program Files (x86)
+      ProgramW6432: C:\Program Files
+      SystemDrive: 'C:'
+      SystemRoot: C:\Windows
+      TEMP: C:\Users\devops\AppData\Local\Temp
+      TMP: C:\Users\devops\AppData\Local\Temp
+      USERDNSDOMAIN: EXAMPLE.COM
+      USERDOMAIN: EXAMPLE
+      USERDOMAIN_ROAMINGPROFILE: EXAMPLE
+      USERNAME: devops
+      USERPROFILE: C:\Users\devops
+      windir: C:\Windows
+    ansible_facts:
+      architecture: 64-bit
+      architecture2: x86_64
+      bios_date: 04/01/2014
+      bios_version: 1.14.0-1.module+el8.4.0+8855+a9e237a9
+      date_time:
+        date: '2024-07-25'
+        day: '25'
+        epoch: '1721871908.10794'
+        epoch_int: 1721871908
+        epoch_local: '1721871908.10794'
+        hour: '01'
+        iso8601: '2024-07-25T01:45:08Z'
+        iso8601_basic: 20240725T014508107942
+        iso8601_basic_short: 20240725T014508
+        iso8601_micro: '2024-07-25T01:45:08.107942Z'
+        minute: '45'
+        month: '07'
+        second: 08
+        time: 01:45:08
+        tz: UTC
+        tz_offset: +00:00
+        weekday: Thursday
+        weekday_number: '4'
+        weeknumber: '29'
+        year: '2024'
+      distribution: Microsoft Windows Server 2022 Standard
+      distribution_major_version: '10'
+      distribution_version: 10.0.20348.0
+      domain: example.com
+      env:
+        ALLUSERSPROFILE: C:\ProgramData
+        APPDATA: C:\Users\devops\AppData\Roaming
+        COMPUTERNAME: WIN2
+        ComSpec: C:\Windows\system32\cmd.exe
+        CommonProgramFiles: C:\Program Files\Common Files
+        CommonProgramFiles(x86): C:\Program Files (x86)\Common Files
+        CommonProgramW6432: C:\Program Files\Common Files
+        DriverData: C:\Windows\System32\Drivers\DriverData
+        HOMEDRIVE: 'C:'
+        HOMEPATH: \Users\devops
+        LOCALAPPDATA: C:\Users\devops\AppData\Local
+        LOGONSERVER: \\WINAD
+        NUMBER_OF_PROCESSORS: '2'
+        OS: Windows_NT
+        PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+        PROCESSOR_ARCHITECTURE: AMD64
+        PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 85 Stepping 7, GenuineIntel
+        PROCESSOR_LEVEL: '6'
+        PROCESSOR_REVISION: '5507'
+        PROMPT: $P$G
+        PSExecutionPolicyPreference: Unrestricted
+        PSModulePath: C:\Users\devops\Documents\WindowsPowerShell\Modules;C:\Program
+          Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+        PUBLIC: C:\Users\Public
+        Path: C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\devops\AppData\Local\Microsoft\WindowsApps
+        ProgramData: C:\ProgramData
+        ProgramFiles: C:\Program Files
+        ProgramFiles(x86): C:\Program Files (x86)
+        ProgramW6432: C:\Program Files
+        SystemDrive: 'C:'
+        SystemRoot: C:\Windows
+        TEMP: C:\Users\devops\AppData\Local\Temp
+        TMP: C:\Users\devops\AppData\Local\Temp
+        USERDNSDOMAIN: EXAMPLE.COM
+        USERDOMAIN: EXAMPLE
+        USERDOMAIN_ROAMINGPROFILE: EXAMPLE
+        USERNAME: devops
+        USERPROFILE: C:\Users\devops
+        windir: C:\Windows
+      fqdn: win2.example.com
+      gather_subset:
+      - all
+      hostname: win2
+      interfaces:
+      - connection_name: tap7725bdfe-06
+        default_gateway: 172.25.250.254
+        dns_domain: null
+        interface_index: 13
+        interface_name: Red Hat VirtIO Ethernet Adapter
+        ipv4:
+          address: 172.25.250.16
+          prefix: '24'
+        ipv6:
+          address: fe80::8ff:892d:8742:f8fb%13
+          prefix: '64'
+        macaddress: 52:54:00:00:FA:10
+        mtu: 1500
+        speed: 10000
+      ip_addresses:
+      - fe80::8ff:892d:8742:f8fb%13
+      - 172.25.250.16
+      kernel: 10.0.20348.0
+      lastboot: '2024-07-22 05:39:49Z'
+      machine_id: S-1-5-21-629025666-2133189555-1705306943
+      memfree_mb: 2440
+      memtotal_mb: 4096
+      module_setup: true
+      netbios_name: WIN2
+      nodename: win2.example.com
+      os_family: Windows
+      os_installation_type: Server
+      os_name: Microsoft Windows Server 2022 Standard
+      os_product_type: server
+      owner_contact: ''
+      owner_name: Windows User
+      pagefilefree_mb: 492
+      pagefiletotal_mb: 704
+      powershell_version: 5
+      processor:
+      - '0'
+      - GenuineIntel
+      - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+      - '1'
+      - GenuineIntel
+      - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+      processor_cores: 1
+      processor_count: 2
+      processor_threads_per_core: 1
+      processor_vcpus: 2
+      product_name: OpenStack Compute
+      product_serial: 342dae85-255e-4614-af80-2f401498f85e
+      reboot_pending: true
+      swaptotal_mb: 0
+      system: Win32NT
+      system_description: ''
+      system_vendor: Red Hat
+      uptime_seconds: 245120
+      user_dir: C:\Users\devops
+      user_gecos: ''
+      user_id: devops
+      user_sid: S-1-5-21-2192024107-3412564761-2221084266-1109
+      virtualization_role: guest
+      virtualization_type: openstack
+      win_rm_certificate_expires: '2034-05-29 06:11:24'
+      win_rm_certificate_thumbprint: C114B5B10B3510E0B7A020ED74F8FBD2B00A133E
+      windows_domain: example.com
+      windows_domain_member: true
+      windows_domain_role: Member server
+    ansible_forks: 5
+    ansible_fqdn: win2.example.com
+    ansible_hostname: win2
+    ansible_interfaces:
+    - connection_name: tap7725bdfe-06
+      default_gateway: 172.25.250.254
+      dns_domain: null
+      interface_index: 13
+      interface_name: Red Hat VirtIO Ethernet Adapter
+      ipv4:
+        address: 172.25.250.16
+        prefix: '24'
+      ipv6:
+        address: fe80::8ff:892d:8742:f8fb%13
+        prefix: '64'
+      macaddress: 52:54:00:00:FA:10
+      mtu: 1500
+      speed: 10000
+    ansible_inventory_sources:
+    - /home/student/proj/EXTRA/hosts
+    ansible_ip_addresses:
+    - fe80::8ff:892d:8742:f8fb%13
+    - 172.25.250.16
+    ansible_kernel: 10.0.20348.0
+    ansible_lastboot: '2024-07-22 05:39:49Z'
+    ansible_machine_id: S-1-5-21-629025666-2133189555-1705306943
+    ansible_memfree_mb: 2440
+    ansible_memtotal_mb: 4096
+    ansible_netbios_name: WIN2
+    ansible_nodename: win2.example.com
+    ansible_os_family: Windows
+    ansible_os_installation_type: Server
+    ansible_os_name: Microsoft Windows Server 2022 Standard
+    ansible_os_product_type: server
+    ansible_owner_contact: ''
+    ansible_owner_name: Windows User
+    ansible_pagefilefree_mb: 492
+    ansible_pagefiletotal_mb: 704
+    ansible_password: D3vOps123!@
+    ansible_playbook_python: /usr/bin/python3
+    ansible_port: 5986
+    ansible_powershell_version: 5
+    ansible_processor:
+    - '0'
+    - GenuineIntel
+    - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+    - '1'
+    - GenuineIntel
+    - Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+    ansible_processor_cores: 1
+    ansible_processor_count: 2
+    ansible_processor_threads_per_core: 1
+    ansible_processor_vcpus: 2
+    ansible_product_name: OpenStack Compute
+    ansible_product_serial: 342dae85-255e-4614-af80-2f401498f85e
+    ansible_reboot_pending: true
+    ansible_run_tags:
+    - all
+    ansible_skip_tags: []
+    ansible_swaptotal_mb: 0
+    ansible_system: Win32NT
+    ansible_system_description: ''
+    ansible_system_vendor: Red Hat
+    ansible_uptime_seconds: 245120
+    ansible_user: devops@EXAMPLE.COM
+    ansible_user_dir: C:\Users\devops
+    ansible_user_gecos: ''
+    ansible_user_id: devops
+    ansible_user_sid: S-1-5-21-2192024107-3412564761-2221084266-1109
+    ansible_verbosity: 1
+    ansible_version:
+      full: 2.15.8
+      major: 2
+      minor: 15
+      revision: 8
+      string: 2.15.8
+    ansible_virtualization_role: guest
+    ansible_virtualization_type: openstack
+    ansible_win_rm_certificate_expires: '2034-05-29 06:11:24'
+    ansible_win_rm_certificate_thumbprint: C114B5B10B3510E0B7A020ED74F8FBD2B00A133E
+    ansible_windows_domain: example.com
+    ansible_windows_domain_member: true
+    ansible_windows_domain_role: Member server
+    ansible_winrm_kerberos_delegation: true
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: kerberos
+    gather_subset:
+    - all
+    group_names:
+    - db_servers
+    groups:
+      all:
+      - monkey
+      - win1.example.com
+      - win2.example.com
+      app_servers:
+      - win1.example.com
+      db_servers:
+      - win2.example.com
+      ungrouped:
+      - monkey
+    hostvars_var:
+      changed: false
+      failed: false
+      hostvars:
+        monkey:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_host: win1.example.com
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - ungrouped
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: monkey
+          inventory_hostname_short: monkey
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+        win1.example.com:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - app_servers
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: win1.example.com
+          inventory_hostname_short: win1
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+        win2.example.com:
+          ansible_check_mode: false
+          ansible_config_file: /home/student/proj/EXTRA/ansible.cfg
+          ansible_connection: winrm
+          ansible_diff_mode: false
+          ansible_facts: {}
+          ansible_forks: 5
+          ansible_inventory_sources:
+          - /home/student/proj/EXTRA/hosts
+          ansible_password: D3vOps123!@
+          ansible_playbook_python: /usr/bin/python3
+          ansible_port: 5986
+          ansible_run_tags:
+          - all
+          ansible_skip_tags: []
+          ansible_user: devops@EXAMPLE.COM
+          ansible_verbosity: 1
+          ansible_version:
+            full: 2.15.8
+            major: 2
+            minor: 15
+            revision: 8
+            string: 2.15.8
+          ansible_winrm_kerberos_delegation: true
+          ansible_winrm_server_cert_validation: ignore
+          ansible_winrm_transport: kerberos
+          group_names:
+          - db_servers
+          groups:
+            all:
+            - monkey
+            - win1.example.com
+            - win2.example.com
+            app_servers:
+            - win1.example.com
+            db_servers:
+            - win2.example.com
+            ungrouped:
+            - monkey
+          inventory_dir: /home/student/proj/EXTRA
+          inventory_file: /home/student/proj/EXTRA/hosts
+          inventory_hostname: win2.example.com
+          inventory_hostname_short: win2
+          omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+          playbook_dir: /home/student/proj/EXTRA
+    inventory_dir: /home/student/proj/EXTRA
+    inventory_file: /home/student/proj/EXTRA/hosts
+    inventory_hostname: win2.example.com
+    inventory_hostname_short: win2
+    module_setup: true
+    omit: __omit_place_holder__5f9539d4f123fb0e9444cca1044acfc18406f14d
+    playbook_dir: /home/student/proj/EXTRA

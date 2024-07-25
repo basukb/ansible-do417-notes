@@ -1,0 +1,30 @@
+- name: testing vars
+  gather_facts: false
+  hosts: all
+  vars:
+    value1: 123
+  vars_files:
+    - vars/data
+  tasks:
+    - name: value1 is {{ value1 }}
+      debug:
+        var: value1
+    
+    - name: include external vars
+      include_vars: vars/mydata
+
+    - name: create value1 variable
+      vars:
+        value1: inside Task
+      debug:
+        msg: value1 is {{ value1 }}
+
+    - name: Guess?
+      debug:
+        msg: "{{ value1 }} is the value of value1"
+
+    - name: inventory variable
+      debug:
+        msg: abc is {{ abc }}
+      when: abc is defined
+

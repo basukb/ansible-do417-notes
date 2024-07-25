@@ -1,8 +1,9 @@
 ---
 - name: Testing simple playbook
-  hosts: win1
-  vars:
-    pub_name: abc
+  hosts: win1.example.com
+  vars_files:
+    - vars/pub_vars
+    - vars/priv_vars
   tasks:
     - name: Task 1
       debug:
@@ -10,9 +11,12 @@
 
     - name: Task 2
       vars:
-        private_counter: 1
+        cnt:
+          - julie
+          - nancy
       debug:
-        msg: Private value is {{ private_counter }}
+        msg: "{{ item }}'s age is {{ users[item]['age'] }}"
+      loop: "{{ cnt }}"
         
     - name: Task 3
       win_template:

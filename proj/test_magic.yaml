@@ -1,17 +1,7 @@
----
-- name: Testing Magic variables
-  hosts: all
+- name: testing hostvars
+  hosts: monkey
   gather_facts: false
   tasks:
-    - name: Inventory Hostname
+    - name: hostvars
       debug:
-        msg: you are on {{ inventory_hostname }}
-
-    - name: group_names
-      debug:
-        msg: "you belong to these group(s): {{ group_names }}"
-
-    - name: all the groups
-      debug:
-        msg: webserver members are {{ groups['webservers'] }}
-...
+        var: hostvars

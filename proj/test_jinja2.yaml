@@ -1,0 +1,16 @@
+- name: testing jinja2
+  hosts: win1.example.com
+  vars:
+    doit: |
+      {% if simple[0] == 'albert' %}
+      true
+      {% else %}
+      false
+      {% endif %}
+  vars_files:
+    - vars/db
+  tasks:
+    - name: copy file over to win1
+      win_template:
+        src: templates/config.ini.j2
+        dest: 'c:\Users\devops\Desktop\config.ini'

@@ -1,0 +1,8 @@
+monkey			ansible_host=win1.example.com
+
+[app_servers]
+win1.example.com
+
+[db_servers]
+win2.example.com
+

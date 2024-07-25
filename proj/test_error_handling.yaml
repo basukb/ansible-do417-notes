@@ -1,19 +1,41 @@
----
-- name: Testing Error Handling
-  hosts: win1
+- name: Testing error handling
+  hosts: win1.example.com
   gather_facts: false
+  vars:
+    fail_it: 1
+    my_test: inventory_hostname in groups['windows']
   tasks:
-    - name: Task 1
-      win_shell:  dir abc
-      #failed_when: false
-      ignore_errors: true
-      register: sh_result
-
-    - name: Task 2
+    - name: T1
       debug:
-        var: sh_result
-        
-    - name: Task 3
+        msg: Task 1
+
+    - block:
+        - name: T2a
+          debug:
+            msg: Task 2a
+          failed_when: true
+
+        - name: T2b
+          debug:
+            msg: Task 2b
+      rescue:
+        - name: R1
+          debug:
+            msg: Rescue 1
+
+        - name: R2
+          debug:
+            msg: Rescue 2
+      always:
+        - name: A1
+          debug:
+            msg: Always 1
+
+        - name: A2
+          debug:
+            msg: Always 2
+      when: my_test
+
+    - name: T3
       debug:
         msg: Task 3
-...

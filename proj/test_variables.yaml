@@ -1,0 +1,41 @@
+---
+# Objectives:
+#   1. Variables naming and usage.
+#      demo will show why we don't use simple names.
+#   2. Variable locations:
+#     a. Inventory Variables
+#     b. Play level variables
+#     c. Task level variables
+#     d. external variable file
+#     e. global variables
+#   3. Variables Scope
+#   4. Precedence (refer to notes.txt).
+# Note: 3 and 4 is covered throughout explainations for 2
+- name: testing variables
+  hosts: win1.example.com
+    #  vars_files:
+    #    - vars/data
+  vars:
+    value1: 1
+  tasks:
+    - name: T1
+      debug:
+        msg: value1 is {{ value1 }}
+
+    - name: get external vars file
+      include_vars: vars/data
+
+    - name: "{{ value1 }} is the value of value1"
+      vars: 
+        value1: IN TASK
+      win_copy:
+        content: |
+          Value1
+          ======
+          {{ value1 }}
+        dest: C:\Users\devops\Desktop\file1.txt
+
+    - name: T3
+      debug:
+        var: value1
+...

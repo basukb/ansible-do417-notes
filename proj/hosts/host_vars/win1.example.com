@@ -1,1 +1,1 @@
-abc: This is win1 variable
+value1: IN INVENTORY

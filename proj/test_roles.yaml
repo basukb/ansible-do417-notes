@@ -1,8 +1,31 @@
+---
 - name: testing roles
   hosts: win2.example.com
+  pre_tasks:
+    - name: pre task
+      debug:
+        msg: This is Pre task
   roles:
     - role: simple
+      pub_name: julie
     - role: simple
-      pub_name: julia
-    - role: simple
-      pub_name: mike
+      pub_name: cindy
+    - simple
+  tasks:
+    - name: main task
+      debug:
+        msg: This is main task
+
+    - name: include simple role
+      vars:
+        pub_name: "{{ item }}"
+      include_role:
+        name: simple
+      loop:
+        - cindy
+        - julie
+        - albert
+
+    - name: last task
+      debug:
+        msg: This is the last task

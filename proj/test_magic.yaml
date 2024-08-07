@@ -1,7 +1,9 @@
-- name: testing hostvars
-  hosts: monkey
-  gather_facts: false
+- name: testing magic variables
+  hosts: windows
   tasks:
-    - name: hostvars
+    - name: show magic variable
       debug:
-        var: hostvars
+        msg: 
+          - my ip is {{ ansible_facts.interfaces[0].ipv4.address }}
+          - win1 ip is {{ hostvars['win1.example.com']['ansible_facts']['interfaces'][0]['ipv4']['address'] }}
+          - win2 ip is {{ hostvars['win2.example.com']['ansible_facts']['interfaces'][0]['ipv4']['address'] }}

@@ -1,0 +1,27 @@
+---
+# Objectives:
+#   1. take note on task sequence.
+#      why isn't  task1 the first task?
+#      turn off facts gathering.
+#   2. why we need to name tasks (t2 & t3)?
+#   3. learn to use module documentation.
+#     a. old (t1) vs new FQCN(t2) format.
+#     b. indentation level for options.
+#   4. win_command vs win_shell.
+#   5. interpreting summary. this play summary is wrong!
+#      why? tips: did you make any change to the system?
+# EXTRA: how to correct the wrong report in 5.
+- name: play 1
+  hosts: windows
+  tasks:
+    - name: Task 1
+      debug:
+        msg: This is task 1
+
+    - ansible.windows.win_shell: whoami.exe
+
+    - ansible.windows.win_shell: dir devops
+      args:
+        chdir: c:\Users
+        removes: c:\Users\devopss
+...

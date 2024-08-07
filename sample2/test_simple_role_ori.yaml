@@ -1,0 +1,25 @@
+---
+- name: Testing simple playbook
+  hosts: win1.example.com
+  vars_files:
+    - vars/pub_vars
+    - vars/priv_vars
+  tasks:
+    - name: Task 1
+      debug:
+        msg: Hello {{ pub_name }}
+
+    - name: Task 2
+      vars:
+        cnt:
+          - julie
+          - nancy
+      debug:
+        msg: "{{ item }}'s age is {{ users[item]['age'] }}"
+      loop: "{{ cnt }}"
+        
+    - name: Task 3
+      win_template:
+        src: abc.cfg.j2
+        dest: C:/Users/devops/Desktop/abc.cfg
+...

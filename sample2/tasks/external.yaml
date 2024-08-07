@@ -1,0 +1,11 @@
+- name: E1
+  debug:
+    msg: External 1
+
+- name: E2
+  debug:
+    msg: External 2 {{ tmp_var }}
+    
+- name: E3
+  debug:
+    msg: External 3

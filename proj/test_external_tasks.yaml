@@ -1,19 +1,17 @@
-- name: test external tasks
-  hosts: localhost
+- name: external task file
+  hosts: win1.example.com
   tasks:
-    - name: T1
+    - name: importing tasks
       vars:
-        tmp_var: hello world
+        data: IMPORT
       import_tasks: tasks/external.yaml
 
-    - name: Loop 3 tasks
+    - name: including external tasks
       vars:
-        tmp_var: "{{ item }}"
+        data: "{{ item }}"
       include_tasks: tasks/external.yaml
       loop:
         - one
         - two
+        - three
 
-    - name: T3
-      debug:
-        msg: Task 3

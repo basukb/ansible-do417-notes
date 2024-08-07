@@ -1,0 +1,21 @@
+[main]
+# some data
+hostname = {{ ansible_fqdn }}
+
+[rules]
+{% if doit %}
+data = you are the greatest
+{% endif %}
+
+[sql]
+{% for database in my_db %}
+USE {{ database.dbname }}
+{% for tables in database.tables %}
+SELECT * from {{ tables.name }}
+{% endfor %}
+{% endfor %}
+
+[users]
+{% for name in simple %}
+{{ name }}
+{% endfor %}

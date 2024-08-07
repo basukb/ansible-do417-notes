@@ -1,0 +1,46 @@
+- name: testing error
+  hosts: webservers
+  gather_facts: false
+  tasks:
+    - name: dir 
+      win_command: dir abc
+      register: cmd_result
+      #failed_when: false
+      ignore_errors: true
+
+    - name: continue
+      debug:
+        msg: hello world, i am alive
+
+    - debug:  var=cmd_result
+    
+    - block: 
+        - name: T4a
+          debug:
+            msg: Task 4a
+          failed_when: true
+
+        - name: T4b
+          debug:
+            msg: Task 4b
+      rescue:
+        - name: R4a
+          debug:
+            msg: Rescue 4a
+
+        - name: R4b
+          debug:
+            msg: Rescue 4b
+      always:
+        - name: A4a
+          debug:
+            msg: Always 4a
+
+        - name: A4b
+          debug:
+            msg: Always 4b
+      when: inventory_hostname in groups['webservers']
+
+    - name: T5
+      debug:
+        msg: Task 5

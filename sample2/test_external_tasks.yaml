@@ -1,0 +1,19 @@
+- name: test external tasks
+  hosts: localhost
+  tasks:
+    - name: T1
+      vars:
+        tmp_var: hello world
+      import_tasks: tasks/external.yaml
+
+    - name: Loop 3 tasks
+      vars:
+        tmp_var: "{{ item }}"
+      include_tasks: tasks/external.yaml
+      loop:
+        - one
+        - two
+
+    - name: T3
+      debug:
+        msg: Task 3

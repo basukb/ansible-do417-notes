@@ -1,0 +1,29 @@
+---
+# Objectives:
+#   1. Why use modules instead of commands?
+#   2. Methods of privilege escalation
+#     a. cmdline & awx template
+#     b. ansible.cfg & playbooks
+#   3. YAML syntax (refer to notes.txt)
+- name: play on dbservers
+  hosts: dbservers
+  tasks:
+    - name: whoami using command?
+      win_command:
+        cmd: whoami.exe
+      changed_when: false
+      
+    - name: whoami using modules
+      win_whoami:
+      become: true
+
+- name: play on webservers
+  hosts: webservers
+  become: true
+  tasks:
+    - name: T1
+      debug:
+        msg: We are now in the second play
+
+    - name: whoami now?
+      win_whoami:

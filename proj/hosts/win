@@ -1,7 +1,11 @@
-[windows]
-win1.example.com
-win2.example.com
-monkey
+monkey			ansible_host=win1.example.com
 
 [webservers]
-monkey			ansible_host=win1.example.com
+win1.example.com
+
+[dbservers]
+win2.example.com
+
+[windows:children]
+webservers
+dbservers

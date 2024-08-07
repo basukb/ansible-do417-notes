@@ -1,0 +1,7 @@
+[windows]
+win1.example.com
+win2.example.com
+monkey
+
+[webservers]
+monkey			ansible_host=win1.example.com

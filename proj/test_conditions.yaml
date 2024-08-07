@@ -1,31 +1,36 @@
-- name: testing
-  hosts: windows
-  gather_facts: false
+- name: testing conditions
+  hosts: webservers
   tasks:
-    - name: T1
-      win_shell: dir c:\Users,c:\asdf
-      when: inventory_hostname == 'win1.example.com'
-      failed_when: false 
-      #ignore_errors: true
-      changed_when: false
-      register: sh_result
+    - name: check user albert
+      win_user:
+        name: albert
+        state: query
+      register: user_result
 
-    - name: will be skipped
+    - name: run if user exists
+      vars:
+        data: 5
       debug:
-        var: sh_result
+        msg: albert exists in {{ ansible_facts.fqdn }}
+      when: 
+        - user_result.state == 'present'
+        - data >= 5
+        - value1 is defined
+
+    - name: whoami
+      win_command: whoami
+      register: cmd_result
+      change_when: false
+
+    - name: are you devops?
+      vars:
+        abc:
+          - one
+          - two
+          - three
+        search_data: two
+      debug:
+        msg: you are devops
       when:
-        - inventory_hostname == 'win1.example.com'
-        - inventory_hostname in groups['windows']
-    
-    - name: T3
-      debug:
-        msg: Task 3
-      when:
-        - sh_result.stdout is defined
-        - "'devops' in sh_result.stdout" 
-      failed_when: false
-
-    - name: T4
-      debug:
-        msg: Task 4
-
+        - search_data in abc
+        - "'devops' in cmd_result.stdout"

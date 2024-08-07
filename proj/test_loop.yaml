@@ -1,37 +1,24 @@
 ---
-- name: test loops
+- name: testing loops
   hosts: windows
-  gather_facts: false
   vars:
-    value1: 1 2 3
-    my_list:
-      - item one
-      - item two
+    user_list:
+      - name: albert
+        groups: Administrators
+      - name: mike
+        groups: Users
+      - name: julie
+        groups: Users
   tasks:
-    - name: T1
+    - name: simple loop
       debug:
-        msg: Item is {{ item }}
+        msg: your item is {{ item }}
       loop:
-        - "{{ value1 }}"
-        - hello world
+        - one
+        - second data
         - 123
 
-    - name: T2
+    - name: create user 
       debug:
-        msg: Task 2 item is {{ item }}
-      loop: "{{ my_list }}"
-
-    - name: T2a
-      debug:
-        msg: "{{ my_list }}"
-
-    - name: T3
-      debug:
-        msg: Name={{ item.name }} age={{ item.age }}
-      loop:
-        - name: one
-          age: 10
-        - name: two
-          age: 20
-        - name: three
-          age: 30
+        msg: "{{ item['name'] }} belongs to the following groups: {{ item['groups'] }}"
+      loop: "{{ user_list }}"

@@ -1,0 +1,23 @@
+- name: testing facts
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: gather facts for win1.example.com
+      setup:
+      register: setup_result
+
+    - name: hostname
+      debug:
+        msg:
+          - you are now in {{ ansible_facts['fqdn'] }}
+          - you are now in {{ ansible_fqdn }}
+
+    - name: display magic variables
+      debug:
+        msg: 
+          - inventory_hostname is {{ inventory_hostname }}
+          - groups is {{ groups }}
+          - group_names is {{ group_names }}
+          - hostvars is # {{ hostvars }}
+      when: inventory_hostname in groups['windows']
+

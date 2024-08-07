@@ -1,0 +1,42 @@
+- name: testing complex structures
+  hosts:
+    - monkey
+    - win2.example.com
+  vars_files:
+    - vars/encoded
+  gather_facts: false
+  vars:
+    user_list:
+      - name: julie
+        age: 123
+        sex: f
+      - name: albert
+        age: 234
+        sex: m
+      - name: jolie
+        age: 2
+        sex: dunno
+  tasks:
+    - name: display julie\'s info
+      vars:
+        item_data: age
+      debug:
+        msg: 
+          - first record information
+          - "{{ user_list[0]['name'] }}"        # {{ user_list[0].name }}
+          - "{{ user_list[0][item_data] + 1 }}"
+          - "{{ user_list[0]['sex'] }}"
+
+    - name: whoami
+      win_whoami:
+      register: whoami_result
+
+    - name: Welcome Message
+      debug:
+        msg: Hello {{ whoami_result.account.account_name }}, welcome to {{ inventory_hostname }}
+
+    - name: secret info
+      debug:
+        msg:
+          - user is {{ username }}
+          - pass is {{ password }}

@@ -1,0 +1,7 @@
+- name: testing hostvars
+  hosts: monkey
+  gather_facts: false
+  tasks:
+    - name: hostvars
+      debug:
+        var: hostvars
